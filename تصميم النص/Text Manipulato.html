@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Manipulator</title>
+    <!--css-->
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #text-input{
+            margin-bottom: 10px;
+            padding: 5px;
+            font-size: 16px;
+            
+        }
+        #text-output{
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .bold{
+            font-style: blod;
+        }
+        .italic{
+            font-style: italic;
+        }
+
+    </style>
+
+</head>
+<body>
+    <h1>Text Manipulator</h1>
+    <input type="text" id="text-input" placeholder="Enter text here">
+    <button onclick="manipulateText('normal')">Manipulate</button>
+    <div id="text-output"></div>
+
+
+    <button onclick="manipulateText('larger')">+</button>
+    <button onclick="manipulateText('smaller')">-</button>
+    <button onclick="manipulateText('bold')">B</button>
+    <button onclick="manipulateText('italic')">I</button>
+    <script>
+        function manipulateText(format) {
+            const textInput = document.getElementById('text-input').value;
+            let textOutput;
+
+            switch (format) {
+                case 'larger':
+                    textOutput = `<span style="font-size: 24px;">${textInput}</span>`;
+                    break;
+                case 'smaller':
+                    textOutput = `<span style="font-size: 16px;">${textInput}</span>`;
+                    break;
+                case 'bold':
+                    textOutput = `<span class="bold">${textInput}</span>`;
+                    break;
+                case 'italic':
+                    textOutput = `<span class="italic">${textInput}</span>`;
+                    break;
+                default:
+                    textOutput = textInput;
+                    break;
+            }
+
+            document.getElementById('text-output').innerHTML = textOutput;
+        }
+    </script>
+</body>
+</html>
